@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-        jumpForce = 10f;
+        jumpForce = 7f;
 	}
 
     // Update is called once per frame
