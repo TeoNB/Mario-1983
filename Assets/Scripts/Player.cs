@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 	Vector2 Move;
     public float velocidad;
     
+    public GameManager GameManager;
 
 	//Variables para el salto
 	float jumpForce;

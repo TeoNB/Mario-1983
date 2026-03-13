@@ -5,14 +5,16 @@ public class Enemy : MonoBehaviour
 {
     public GameManager GameManager;
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	int danio=1;
+	//int danio=1;
     public Player playerscript;
     //Hara falta hacer una funcion en el player llamada Recibirdanio que haga que si mario recibe 2 de daño haga gameover
-    int direccion = Random.Range(-1,2);
-    void Start()
+    int direccion;
+    
+	void Start()
     {
-        
-    }
+        direccion = UnityEngine.Random.Range(-1, 2);
+
+	}
 
     // Update is called once per frame
     void Update()

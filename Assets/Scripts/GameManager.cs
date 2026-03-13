@@ -3,12 +3,14 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private Camera camPrincipal;
+    public GameObject Player;
+	private Camera camPrincipal;
     [SerializeField] private float empuje;
 
     int vidas = 3;
     int score = 0;  
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI vidasText;
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
     {
@@ -40,8 +42,8 @@ public class GameManager : MonoBehaviour
     public void PerderVida(int cantidad)
     {
         vidas -= cantidad;
-        Debug.Log("Vidas restantes: " + vidas);
-        if (vidas <= 0)
+        vidasText.text = "Vidas: " + vidas;
+		if (vidas <= 0)
         {
             GameOver();
         }
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
 	void GameOver()
     {
        scoreText.text = "Game Over! Final Score: " + score;
+       Destroy(Player);
 	}
 
 }
