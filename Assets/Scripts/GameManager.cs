@@ -1,10 +1,14 @@
 using UnityEngine;
+using TMPro;
 
-public class MantenerPantalla : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     private Camera camPrincipal;
     [SerializeField] private float empuje;
 
+    int vidas = 3;
+    int score = 0;  
+    public TextMeshProUGUI scoreText;
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
     {
@@ -25,9 +29,27 @@ public class MantenerPantalla : MonoBehaviour
             transform.position = camPrincipal.ViewportToWorldPoint(new Vector3(1 - empuje, posicion.y, posicion.z));
         }
 
-
-
 	}
 
-    
+    public void addScore(int score)
+    {
+        score++;
+        scoreText.text = "Score: " + this.score;
+	}
+
+    public void PerderVida(int cantidad)
+    {
+        vidas -= cantidad;
+        Debug.Log("Vidas restantes: " + vidas);
+        if (vidas <= 0)
+        {
+            GameOver();
+        }
+	}
+
+	void GameOver()
+    {
+       scoreText.text = "Game Over! Final Score: " + score;
+	}
+
 }
