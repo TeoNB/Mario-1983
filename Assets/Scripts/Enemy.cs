@@ -13,4 +13,14 @@ public class Enemy : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.name == "Player")
+        {
+            
+            Destroy(gameObject);
+            //Destroy(collider.gameObject);
+        }
+    }
 }
